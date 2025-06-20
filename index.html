@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░████░░░░░░██░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░█░░░░░░░░░░█░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀▄▀░░█░░▄▀▄▀▄▀░░█░░▄▀░░░░░░░░░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░░░░░█░░░░░░▄▀░░░░░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░░░░░▄▀░░████░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█░░▄▀░░██░░▄▀░░░░█░░░░▄▀░░░░█░░▄▀▄▀▄▀▄▀▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░░░█
+█░░▄▀░░█████████████░░▄▀░░█████░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░████░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░█████████░░▄▀░░██░░▄▀░░█████░░▄▀░░███░░▄▀░░░░░░▄▀░░██░░▄▀░░█░░▄▀░░█████████
+█░░▄▀░░░░░░░░░░█████░░▄▀░░█████░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░▄▀░░████░░▄▀░░░░░░▄▀░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░█████████░░▄▀░░░░░░▄▀░░█████░░▄▀░░███░░▄▀░░██░░▄▀░░██░░▄▀░░█░░▄▀░░█████████
+█░░▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░█████░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░█████████░░▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░███░░▄▀░░██░░▄▀░░██░░▄▀░░█░░▄▀░░██░░░░░░█
+█░░░░░░░░░░▄▀░░█████░░▄▀░░█████░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░░░████░░▄▀░░░░░░▄▀░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░█████████░░▄▀░░░░░░▄▀░░█████░░▄▀░░███░░▄▀░░██░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█
+█████████░░▄▀░░█████░░▄▀░░█████░░▄▀░░██░░▄▀░░█░░▄▀░░████████████░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░█████████░░▄▀░░██░░▄▀░░█████░░▄▀░░███░░▄▀░░██░░▄▀░░░░░░▄▀░░█░░▄▀░░██░░▄▀░░█
+█░░░░░░░░░░▄▀░░█████░░▄▀░░█████░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░░░█░░▄▀░░██░░▄▀░░░░█░░░░▄▀░░░░█░░▄▀░░██░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░░░░░▄▀░░█
+█░░▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░█████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░████████████░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀▄▀░░█░░▄▀▄▀▄▀░░█░░▄▀░░██░░░░░░░░░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░░░░░░░░░░░░░█████░░░░░░█████░░░░░░░░░░░░░░█░░░░░░████████████░░░░░░██░░░░░░█░░░░░░██░░░░░░█░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░█░░░░░░░░░░█░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░█
+███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+███████████████████████████████████████████████████████████████████████████████████████████████████████
+█░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░████░░░░░░░░░░░░░░███░░░░░░░░░░░░░░░░███░░░░░░░░░░░░░░████░░░░░░█
+█░░▄▀░░░░░░░░░░░░░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░░░░░░░░░████░░▄▀░░░░░░▄▀░░███░░▄▀░░░░░░░░▄▀░░███░░▄▀░░░░░░▄▀░░████░░▄▀░░█
+█░░▄▀░░░░░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░▄▀░░██░░▄▀░░███░░▄▀░░████░░▄▀░░███░░▄▀░░██░░▄▀░░████░░▄▀░░█
+█░░▄▀░░██░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░░░████░░▄▀░░░░░░▄▀░░░░█░░▄▀░░░░░░░░▄▀░░███░░▄▀░░██░░▄▀░░████░░▄▀░░█
+█░░▄▀░░██░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀▄▀░░███░░▄▀░░██░░▄▀░░████░░▄▀░░█
+█░░▄▀░░██░░░░░░██░░▄▀░░█░░▄▀░░░░░░░░░░████░░▄▀░░░░░░░░▄▀░░█░░▄▀░░░░░░▄▀░░░░███░░▄▀░░██░░▄▀░░████░░░░░░█
+█░░▄▀░░██████████░░▄▀░░█░░▄▀░░████████████░░▄▀░░████░░▄▀░░█░░▄▀░░██░░▄▀░░█████░░▄▀░░██░░▄▀░░███████████
+█░░▄▀░░██████████░░▄▀░░█░░▄▀░░░░░░░░░░████░░▄▀░░░░░░░░▄▀░░█░░▄▀░░██░░▄▀░░░░░░█░░▄▀░░░░░░▄▀░░████░░░░░░█
+█░░▄▀░░██████████░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀░░█
+█░░░░░░██████████░░░░░░█░░░░░░░░░░░░░░████░░░░░░░░░░░░░░░░█░░░░░░██░░░░░░░░░░█░░░░░░░░░░░░░░████░░░░░░█
+███████████████████████████████████████████████████████████████████████████████████████████████████████
+-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description"
+		content="Hello Hackers , I'm am Madhurendra Kumar ( M14R41 ) . Working at position Sr. Information Security Consultant">
+	<meta name="keywords"
+		content="Madhurendra Kumar, M14R41, Madhurendra Kumar, m14r41, m14r41 hacker, m14r41 redteam, Bug Bounty Hunter, Madhurenddra Hacker">
+	<meta name="author" content="Madhurendra Kumar">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Title -->
+	<title>M14R41 || MADHURENDRA</title>
+	<!-- Favicon -->
+	<link href="img/favicon.ico" type="image/png" rel="icon">
+	
+	<!-- All CSS -->
+
+	<link href="css/plugins.css" rel="stylesheet" type="text/css">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L16KL7RKER"></script>
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=333772041"></script>
+	<link href="css/responsive.css" rel="stylesheet" type="text/css">
+
+
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'G-L16KL7RKER');
+	</script>
+
+
+	<!-- Global site tag (gtag.js) -->
+</head>
+
+<body id="body" data-spy="scroll" data-target="#menu-list">
+
+	<!--  start page loader  -->
+	<div id="preloader">
+		<div class="scroll-static"></div>
+	</div>
+	<!--  end page loader  -->
+
+	<!-- begin of main-wrapper -->
+	<div class="main-wrapper">
+		<!-- begin of navbar -->
+		<div class="nav-bar">
+			<!-- begin of scroll-indicator -->
+			<div class="scroll-indicator"></div>
+			<nav>
+				<ul id="menu-list">
+					<li class="nav-item"><a class="active nav-link" href="#body" data-text="Home">
+							<span>01</span>Home
+						</a></li>
+					<li class="nav-item"><a class="nav-link" href="#about" data-text="About">
+							<span>02</span>About
+						</a></li>
+					<li class="nav-item"><a class="nav-link" href="#experience" data-text="Experience">
+							<span>03</span>Experience
+						</a></li>
+					<li class="nav-item"><a class="nav-link" href="#hall" data-text="Hall">
+							<span>04</span>Hobbies
+						</a></li>
+					<li class="nav-item"><a class="nav-link" href="#certifications" data-text="Achievements">
+							<span>05</span> certifications
+						</a></li>
+					<li class="nav-item"><a class="nav-link" href="#education" data-text="Education">
+							<span>06</span>Education
+						</a></li>
+					<li class="nav-item"><a class="nav-link" href="#achievements" data-text="Achievements">
+							<span>07</span>Achivements
+						</a></li>
+					
+					<li class="nav-item"><a class="nav-link" href="#projects" data-text="Blogs">
+							<span>08</span>Projects
+						</a></li>
+							
+					<li class="nav-item"><a class="nav-link" href="#blogs" data-text="Blogs">
+							<span>09</span>Blogs
+						</a></li>
+						
+					<li class="nav-item"><a class="nav-link" href="#contact" data-text="Contact">
+							<span>10</span>Contact
+						</a></li>
+						
+					<!--<li class="nav-item"><a class="nav-link" href="#buyMeACoffe" data-text="Buy me a Coffee">
+					<span>11</span>Buy me a Coffee
+				</a></li>-->
+				</ul> <br><br><br>
+
+			</nav>
+			</nav>
+
+		</div>
+		<!-- end of navbar -->
+		<!-- begin of main-content -->
+		<div class="main-content">
+			<!-- begin of header -->
+			<header>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-7">
+							<!-- logo -->
+							<div class="logo">
+								<a style="color: rgb(255, 6, 6); text-shadow: rgb(255, 19, 19) 2px 3px 19px;"
+									href="https://m14r41.in"><img src="img/hacker.svg" alt="m14r41"
+										style="width:32px;height:32px;"><strong>M14R41 &nbsp;<img
+											src="img/hacker.svg" alt="m14r41 "
+											style="width:32px;height:32px;"></strong></a>
+							</div>
+						</div>
+						<div class="col-5">
+							<a href="https://blogs.m14r41.in/" target="_blank" class="default-btn header-action-btn"><i
+									class="ti-agenda"></i>Blog</a>&nbsp;
+							<div class="default-btn menu-btn">
+								<i class="ti-menu"></i>
+								<i class="ti-close"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- end of header -->
+
+			<!-- begin of home-wrapper -->
+			<div class="home-wrapper">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-5 col-sm-5">
+							<div class="hero-img wow fadeIn" data-wow-delay=".2s">
+								<div class="shape"></div>
+								<!-- hero image -->
+								<img class="img-fluid" src="img/Capture4.gif" alt="">
+							</div><br><br>
+							<iframe style="pointer-events: none;" data-wow-delay=".2s"
+								src="https://free.timeanddate.com/clock/i83jkenu/n1595/fn17/fs16/fcf90/tc111/pct/avb/ftb/bas2/bat8/bac111/pa8/tt0/tw1/th1/ta1/tb4"
+								frameborder="1" width="360" height="60" allowtransparency="true"></iframe>
+
+						</div>
+
+						<div class="col-md-7 col-sm-7">
+							<div class="hero-content">
+								<h2 class="intro-name">
+									<span style="color: rgb(0, 243, 0); text-shadow: rgb(81, 255, 0) 2px 3px 19px ;"
+										class="wow slideInLeft" data-wow-delay=".2s">Hello Word, I'm </span>
+									<h1 class="name"> Madhurendra K...</h1>
+									<style>
+										@keyframes slideInLeft {
+											0% {
+												transform: translateX(-100%);
+												opacity: 0;
+											}
+
+											100% {
+												transform: translateX(0);
+												opacity: 1;
+											}
+										}
+									</style>
+
+								</h2>
+								<p>
+									<span class="wow slideInLeft" data-wow-delay=".5s">Sr. Information Security
+										Consultant || 50x CVE || CRTP | CEH-Master || CTF Player</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of home-wrapper -->
+
+			<!-- begin of about-wrapper -->
+			<div id="about" class="wrapper about-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+
+
+							<h3 class="wrapper-heading">About Me</h3>
+
+							<h4 class="about-sub-heading"> <strong>Hi, I'm Madhurenddra ...
+									myself.</strong></h4>
+
+							<p class="about-text">
+                                                       <strong id="sk">Senior Information Security Consultant</strong> with over <strong id="sk">50x CVEs</strong> on my name. Holds Certificate of  <strong id="sk">CRTP</strong> and <strong id="sk">Master in Certified Ethical Hacker (CEH) by EC-Council</strong>  <strong id="sk"></strong>, I am actively engaged as a <strong id="sk">Security Researcher</strong>.
+</p>
+
+
+							<div class="skill-percent wow slideInLeft" data-wow-delay=".14s" style="width:97%"></div>
+							<div class="skill-percent wow slideInLeft" data-wow-delay=".14s" style="width:97%"></div>
+
+							I have completed my <strong> <strong
+									style="color: rgb(51, 248, 2); font-size:large;"> Master degree in MCA</strong> <strong style="color: crimson; font-size:large;"> 2022 to 2024 </strong>year.<br><br> My expertise includes <strong id="sk">Web Application PT,
+									API PT, Android PT, Thick Client PT, Secure Code Review, Network PT, and basics of
+									Cloud pentesting</strong>. I am proficient in <strong id="sk">Computer Networking,
+									Bash-Scripting</strong>, and <strong id="sk">major programming languages</strong>,
+								operating across <strong id="sk">all major operating systems</strong>, and currently
+								enhancing my knowledge in <strong id="pr">Cloud, Network, and Firewall
+									Security</strong>. I actively engage in <strong id="pr">Bug Hunting</strong> and
+								exploring <strong id="pr">Red Team</strong> Attack Vectors, expanding my skills on
+								platforms like <b id="pt">TryHackMe</b> and <b id="pt">Hackthebox</b>.<br><br>
+								
+								<p>
+    I possess hands-on experience with a wide range of tools including:
+    <b>
+        <!-- Web App Pentesting -->
+        <strong id="st">Burp Suite Pro 🌐</strong>, 
+        <strong id="st">Acunetix 🌐</strong>, 
+        <strong id="st">Fortify-WebInspect 🌐</strong>, 
+	<strong id="st">HCL-AppScan 🌐</strong>, 
+	<strong id="st">invicti netsparker 🌐</strong>, 
+	<strong id="st">wp-scan 🌐</strong>, 
+	<strong id="st">Nikto 🌐</strong>, 
+	<strong id="st">Dirsearch,Dirb,WFuzz 🌐</strong>, 
+	<strong id="st">SQLMap 🌐</strong>, 
+        <strong id="st">OWASP ZAP 🌐</strong>, 
+        <strong id="st">Nmap 🌐</strong>, 
+      
+	    
+        <!-- Mobile App Pentesting (Android) -->
+	<strong id="st">ADB 📱</strong>,  
+	<strong id="st">MobSF 📱</strong>, 
+        <strong id="st">Frida 📱</strong>, 
+	<strong id="st">Objection 📱</strong>, 
+        <strong id="st">APKTool 📱</strong>, 
+        <strong id="st">JADX-GUI 📱</strong>, 
+        <strong id="st">Android-Studio/Genymotion/Nox-Player 📱</strong>, 
+        <strong id="st">Drozer 📱</strong>, 
+        <strong id="st">Magisk Root 📱</strong>, 
+        <strong id="st">APKX 📱</strong>, 
+	<strong id="st">SSLUnpinning_Xposed 📱</strong>, 
+        <strong id="st">mitmproxy 📱</strong>, 
+	    
+        
+ 
+
+        <!-- API Pentesting -->
+	<strong id="st">Postman 📡</strong>, 
+	<strong id="st">SoapUI 📡</strong>, 
+	<strong id="st">Wordlist seclists & Assetnote 📡</strong>, 
+        <strong id="st">Kite Runner 📡</strong>, 
+  
+
+        <!-- Secure Code Review -->
+        <strong id="st">SonarQube 🔐</strong>, 
+	<strong id="st">Semgrep 🔐</strong>,
+	<strong id="st">Fortify-WorkbenchAudit 🔐</strong>, 
+	<strong id="st">Snyk 🔐</strong>, 
+	<strong id="st">OpenText™ Fortify™ SAST 🔐</strong>, 
+	<strong id="st">Checkmarx 🔐</strong>, 
+        <strong id="st">Veracode 🔐</strong>, 
+        <strong id="st">VCG 🔐</strong>,
+        <strong id="st">VSCode</strong>, 
+
+
+        <!-- Thick Client Pentesting -->
+
+        <strong id="st">Fiddler/Echo Mirage/Burpsuite 💻</strong>, 
+        <strong id="st">Sysinternals Suite 💻</strong>, 
+	<strong id="st">SigCheck 💻</strong>,
+	<strong id="st">TCPView 💻</strong>, 
+	<strong id="st">Strings.exe 💻</strong>
+	<strong id="st">CFF Exploer/DedectItEasy 💻</strong>
+	<strong id="st">Procmon 💻</strong>, 
+        <strong id="st">Dnspy/ILSpy/Dot Peek 💻</strong>, 
+	<strong id="st">Process Explorer/Process Hacker 💻</strong>, 
+        <strong id="st">de4dot 💻</strong>, 
+        <strong id="st">IDA Pro 💻</strong>, 
+	<strong id="st">DCPdump/Wireshark</strong>, 
+        <strong id="st">x64dbg 💻</strong>, 
+        <strong id="st">Ghidra/OllyDbg 💻</strong>, 
+	<strong id="st">RegShot/Volatility 💻</strong>, 
+      
+
+
+        <!-- Network Pentesting -->
+	<strong id="st">Nessus 🕸️</strong>, 
+        <strong id="st">Metasploit Framework 🕸️</strong>, 
+	<strong id="st">SMBclient 🕸️</strong>,
+	<strong id="st">TCPdump 🕸️</strong>
+	<strong id="st">Ettercap 🕸️</strong>,
+	<strong id="st">Netcat 🕸️</strong>,
+
+
+
+	<!-- Active Directory -->
+	<strong id="st">PowerUp.ps1 🧑🏽‍💻</strong>,  
+	<strong id="st">InviShell 🧑🏽‍💻</strong>, 
+	<strong id="st">Find-PSRemotingLocalAdminAccess.ps1 🧑🏽‍💻</strong>,     
+	<strong id="st">AmsiTrigger 🧑🏽‍💻</strong>,  
+	<strong id="st">BetterSafetyKatz.exe 🧑🏽‍💻</strong>,  
+	<strong id="st">BloodHound🧑🏽‍💻</strong>,  
+	<strong id="st">DefenderCheck 🧑🏽‍💻</strong>,  
+	<strong id="st">Invoke-SessionHunter.ps1 🧑🏽‍💻</strong>,  
+	<strong id="st">Loader.exe 🧑🏽‍💻</strong>,  
+	<strong id="st">mimikatz 🧑🏽‍💻</strong>,  
+	<strong id="st">Rubeus.exe 🧑🏽‍💻</strong>,  
+	<strong id="st">SafetyKatz.exe 🧑🏽‍💻</strong>,  
+	<strong id="st">SharpKatz.exe 🧑🏽‍💻</strong>,  
+	<strong id="st">winPEASx64.exe 🧑🏽‍💻</strong>
+	<strong id="st">etc... </strong>
+
+
+    
+    </b>
+</p>
+<br>
+<p>
+    I actively seek collaborations with fellow InfoSec enthusiasts for <strong id="pr">Red Teaming</strong>.
+</p>
+<br>
+
+
+
+
+
+								</p>
+								<a href="https://blogs.m14r41.in/" target="_blank" class="default-btn"><i
+										class="ti-agenda"></i>Medium Blog</a>
+								<a href="https://m14r41.blogspot.com/" target="_blank" class="default-btn"><i class="ti-agenda"></i>Blogspot 
+									Articles</a>
+
+								<!-- social profile links -->
+								<div class="social-links">
+									<span>Connect with Me </span>
+									<ul>
+										<li><a href="https://twitter.com/M14_R41" data-text="tw" target="_blank"><i
+													class="ti-twitter"></i></a></li>
+										<li><a href="https://www.linkedin.com/in/M14R41/" data-text="in"
+												target="_blank"><i class="ti-linkedin"></i></a></li>
+										<li><a href="https://www.github.com/M14R41/" data-text="git" target="_blank"><i
+													class="ti-github"></i></a></li>
+									</ul>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- end of about-wrapper -->
+			<!-- begin of skills-wrapper -->
+			<div id="skills" class="wrapper skills-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6 margin-on-md">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Skills</h3>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Perform Vulnerability Assessments</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:95%">
+									</div>
+								</div>
+							</div>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Web Application Penetration Testing</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:95%">
+									</div>
+								</div>
+							</div>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>API Penetration Testing</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:95%">
+									</div>
+								</div>
+							</div>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Android Pentesting</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:95%">
+									</div>
+								</div>
+							</div>
+
+							<div class="skill-item">
+								<p>iOS Pentesting</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:90%">
+									</div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Secure Code Review : SAST</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:95%">
+									</div>
+								</div>
+							</div>
+
+							
+							
+							<div class="skill-item">
+								<p>Thick Client Pentesting</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:90%">
+									</div>
+								</div>
+								
+							</div>
+							<div class="skill-item">
+								<p>Cloud Pentes Pentesting</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:60%">
+									</div>
+								</div>
+							</div>
+
+							<div class="skill-item">
+								<p>Domain,Sub-domain configuration and cloudflared</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:60%">
+									</div>
+								</div>
+							</div>
+
+							
+								
+						</div>
+						<div class="col-md-6">
+							<!-- section heading -->
+							<br><br><br><br>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Wifi Hacking</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:70%"></div>
+								</div>
+							</div>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Dev SecOps</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:30%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Automation : Bash and Python scripting</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:50%"></div>
+								</div>
+							</div>
+							
+							
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Git/ Github</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:70%">
+									</div>
+								</div>
+							</div>
+							<div class="skill-item">
+								<p>Bash, Python, Powershell, HTML/CSS/JS, C, C++,Go, Java, YML </p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:60%">
+									</div>
+								</div>
+							</div>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Automation by scripting - Bash & Python</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:70%"></div>
+								</div>
+							</div>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p> <strong> Tools:</strong> Burpsuite, Acunetix, AppScan, Netspaker,WebInspect, Nessus, Sqlmap, Nmap, Nuclie</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:99%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p><strong>More-Tools:-</strong> Postman, Swagger, adb, MobSF, AndroidStudio,frida/objection, SonarQube, WebInspect, Semgrep, checkmarks, dnSpy, ProcessHacker, Filders, EchoMirag</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:99%"></div>
+								</div>
+							</div>
+							
+
+							<!-- skill item -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of skills-wrapper -->
+
+			<!-- begin of experience-wrapper -->
+			<div id="experience" class="wrapper experience-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Experience</h3>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><b>eSec Forte Technologies </b></h4>
+								<p style="color: rgb(252, 156, 13);" class="position-name"><b>Sr. Information Security
+										Consultant</b></p>
+								<p class="mute-text">April 2024 - Present</p>
+								<ul>
+									
+									<li>• Perform Vulnerability Assessments. </li>
+									<li>• Perform penetration tests on Web applications. </li>
+									<li>• Perform penetration test on API. </li>
+									<li>• Source Code Review </li>
+									<li>• Mobile Pentesting ( Android and iOS)</li>
+									<li>• Thick Client Pentesting</li>
+									<li>• Conduct in-depth security research, document findings, and
+										collaborate with the team to address vulnerabilities and discuss with
+										client for remediation.</li>
+
+
+								</ul>
+
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><b>Global Technology & Information Security</b></h4>
+								<p style="color: rgb(252, 156, 13);" class="position-name"><b>Information Security
+										Analyst</b></p>
+								<p class="mute-text">April 2022 - April 2024</p>
+								<ul>
+									<li>• Perform Vulnerability Assessments. </li>
+									<li>• Perform penetration tests on Web applications. </li>
+									<li>• Perform penetration test on API. </li>
+									<li>• Network penetration test. </li>
+									<li>• Source Code Review </li>
+									<li>• Mobile Pentesting </li>
+									<li>• Thick Client Pentesting</li>
+									<li>• Research, document and discuss security findings with management and IT teams
+									</li>
+								</ul>
+
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><b>Cyber Secured India · Internship</b></h4>
+								<p style="color: rgb(252, 156, 13);" class="position-name"><b>Cyber security and digital
+										forensics</b></p>
+								<p class="mute-text">Jan 2022 - March 2022</p>
+								<ul>
+									<li>• Perform web application pen-testing.</li>
+									<li>• Perform mobile application pen-testing.</li>
+									<li>• IoT and Hardware Pentesting.</li>
+									<li>• Introduction to automobile penetration testing</li>
+									<li>• Introduction to RF Pentesting.</li>
+									<li>• Documentations and writing reports.</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><b>Bug Hunting</b></h4>
+								<p style="color: rgb(252, 156, 13);" class="position-name"><b>Independent Security
+										Researcher</b></p>
+								<p class="mute-text">July 2022 - Present</p>
+								<ul>
+									<li>• Recivied Multiple Hall of Fame</li>
+									<li>• Recieved Multiple Acknowledgement</li>
+									<li>• Recieved Multiple Apprication Letters</li>
+									<li>• Recieved 350 plus Acknowledgements from NCIIPC </li>
+									<li>• Looking forward make more contributions...contributing to Secure the Security
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><b>SISTMR, Australia</b></h4>
+								<p style="color: rgb(252, 156, 13);" class="position-name"><b>Cyber Security Internship
+										Program</b></p>
+								<p class="mute-text">Feb 2022 - March 2022</p>
+								<ul>
+									<li>• Perform various CTF and challenges.</li>
+									<li>• Virtualizations on Virtualbox and Workstations.</li>
+									<li>• Web PT on various vulnerable applications.
+									<li>• Projects on Metasploitable2 & OWASP Broken Web Applications </li>									
+									<li>• Networking concepts like OSI, TCP/IP </li>
+									<li>• Networking devices, IP/MAC, Digital ommunications, etc.</li>										
+								</ul>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+			<!-- end of experience-wrapper -->
+
+
+			<!-- begin of hall offame-wrapper -->
+			<div id="hall" class="wrapper experience-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="wrapper-heading">Hobbies</h3>
+						</div>
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Capture the Flag - HTB and THM </h4>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Security Writups Writting and Reading</h4>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Security Research</h4>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Open Source contributions</h4>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Programming and automation</h4>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Open Source Projects</h4>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- end of walloffame-wrapper		
+			begin of certs-wrapper  -->
+
+			<div id="certifications" class="wrapper experience-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Certifications</h3>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Master of Certifed Ethical Hacker</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">EC-Council</p>
+								<p class="mute-text"><a
+										href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=70IiRie319foX3BwgfRy6GJRlplsegASn+znlsRM5L4="
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:ECC2039745816</p>
+								<p class="mute-text">July 22, 2022</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">CEH Practical </h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">EC-Council</p>
+								<p class="mute-text"><a
+										href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=70IiRie319foX3BwgfRy6NutwkYkHZnF+XYv9hIlBVc="
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:ECC5902376841 </p>
+								<p class="mute-text">July 22, 2022</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Certifed Ethical Hacker V11</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">EC-Council</p>
+								<p class="mute-text"><a
+										href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=+8lTtoJ8QWHZMV7T4cTXI1t9aWPbZtGqjtaPNT7AAP0="
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:ECC7538946210</p>
+								<p class="mute-text">April 19, 2022 </p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Multi-Cloud Red Teaming Analyst</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">CYBERWARFARE LABS</p>
+								<p class="mute-text"><a
+										href="https://labs.cyberwarfare.live/badge/image/668463e25579bdc57c6913c2"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:668463e25579bdc57c6913c2</p>
+								<p class="mute-text">July 07, 2024</p>
+							</div>
+						</div>
+
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Certified Appsec Practitioner (CAP)</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">The SecOps Group</p>
+								<p class="mute-text"><a
+										href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXZNjjtWUO1C1KIQNkmb0mevkvNAi0VvQse2yPGt27EWk3jmVDgL5F71GngWkGx4bnNwRYu4Mb/L5dhs5G68zhxs="
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:6899817</p>
+								<p class="mute-text">JANUARY 2023</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Official (ISC)2 Certified in Cybersecurity</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">ISC)2</p>
+								<p class="mute-text"><a
+										href="https://drive.google.com/file/d/1kifrNisjoSQpqQtCHlBgldf9YZfEriC3/view?usp=sharing"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:00000</p>
+								<p class="mute-text">JANUARY 2023</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"> Practical Ethical Hacking </h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">TCM Security</p>
+								<p class="mute-text"><a
+										href="#"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:cert_8q98pmdv</p>
+								<p class="mute-text">JANUARY 01, 2024</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Introduction to Cybersecurity Learning Path</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">TryHackMe</p>
+								<p class="mute-text"><a
+										href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-MC58TPH3AX.png"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:THM-MC58TPH3AX</p>
+								<p class="mute-text">DECEMBER 2021</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Pre Security Learning Path</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">TryHackMe</p>
+								<p class="mute-text"><a
+										href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-XGT36QDZEV.png"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:THM-XGT36QDZEV</p>
+								<p class="mute-text">July 31, 2022</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Introduction to Cybersecurity Tools & Cyber Attacks</h4>
+								<p style="color: rgb(255, 167, 34);" class="position-name">IBM</p>
+								<p class="mute-text"><a
+										href="https://www.coursera.org/account/accomplishments/verify/8D4V3DV9EVJE?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID:NUBEETVTMLR3</p>
+								<p class="mute-text">DECEMBER 2021</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Technical Support Fundamentals</h4>
+								<p style="color: goldenrod;" class="position-name">Google</p>
+								<p class="mute-text"><a
+										href="https://coursera.org/share/768f1d8fc287d24e24a80c7324ec8524"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID: NUBEETVTMLR3</p>
+								<p class="mute-text">OCTOBER 2021</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Intro to Bug Bounty Hunting and Web Application Hacking </h4>
+								<p style="color: goldenrod;" class="position-name">Udemy</p>
+								<p class="mute-text"><a
+										href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-3e631283-6ac3-4f74-a7dc-e8a3fa01492c.pdf"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Certification ID : UC-3e631283-6ac3-4f74-a7dc-e8a3fa01492c</p>
+								<p class="mute-text"> DECEMBER 2021</p>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Introduction to Cyber Security</h4>
+								<p style="color: goldenrod;" class="position-name">Simplilearn</p>
+								<p class="mute-text"><a
+										href="https://certificates.simplicdn.net/share/2972431_1635061512.pdf"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Certification ID : 2972431c</p>
+								<p class="mute-text">OCTOBER 2021</p>
+
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"> BUG BOUNTY HUNTING WITH BURP SUITE</h4>
+								<p style="color: goldenrod;" class="position-name">Udemy</p>
+								<p class="mute-text"><a
+										href="https://www.udemy.com/certificate/UC-f05cddeb-cd09-444f-b71d-a19c1849c6c2/"
+										target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Certification ID : UC-f05cddeb-cd09-444f-b71d-a19c1849c6c2</p>
+								<p class="mute-text">Novembrt 2022</p>
+
+							</div>
+						</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+			<!-- end of certs-wrapper -->
+
+			<!-- begin of education-wrapper -->
+			<div id="education" class="wrapper education-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Education</h3>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="education-single">
+								<h4 class="course-name">Master of Computer Application</h4>
+								<p class="institute">mangalayatan university </br> UP </p>
+								<p class="mute-text">2022 - 2024</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="education-single">
+								<h4 class="course-name">Bachelor's of Computer Application</h4>
+								<p class="institute">BRABU University </br> Muzaffarpur, Bihar </p>
+								<p class="mute-text">2018 - 2021</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="education-single">
+								<h4 class="course-name">Senior Secondary</h4>
+								<p class="institute">Raghunath Jha Mahavidyalaya</br> Sitamarhi, Bihar</p>
+								<p class="mute-text">2015 - 2017</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- end of education-wrapper -->
+
+			
+
+			<!-- begin of achivements-wrapper -->
+			<div id="achievements" class="wrapper achievements-wrapper">
+				<div class="container-fluid">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="wrapper-heading">Achievements</h3>
+							</div>
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Recieved : CVE ID </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-48278 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-48278" aria-label="View CVE-2024-48278 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-48279 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-48279" aria-label="View CVE-2024-48279 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-48280 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-48280" aria-label="View CVE-2024-48280 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-48282 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-48282" aria-label="View CVE-2024-48282 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-48283 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-48283" aria-label="View CVE-2024-48283 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-48810 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://www.cve.org/CVERecord?id=CVE-2024-48810" aria-label="View CVE-2024-48810 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-48811 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://www.cve.org/CVERecord?id=CVE-2024-48811" aria-label="View CVE-2024-48811 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50823 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50823" aria-label="View CVE-2024-50823 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50824 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50824" aria-label="View CVE-2024-50824 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50825 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50825" aria-label="View CVE-2024-50825 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50826 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50826" aria-label="View CVE-2024-50826 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50827 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50827" aria-label="View CVE-2024-50827 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50828 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50828" aria-label="View CVE-2024-50828 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50829 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50829" aria-label="View CVE-2024-50829 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50830 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50830" aria-label="View CVE-2024-50830 details">&nbsp;&nbsp;Check here!</a>
+									</h4>
+
+
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50831 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50831">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50832 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50832">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50833 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50833">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50834 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50834">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50835 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50835">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50836 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50836">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50837 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50837">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50838 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50838">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50839 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50839">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50840 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50840">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+
+									
+								</div>
+							</div>
+
+						
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Recieved : CVE ID </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									
+									
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50841 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50841">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50842 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50842">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50843 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50843">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>CVE-2024-50844 &nbsp;</b>
+										<b style="color:darkcyan">&nbsp; 2024 </b>
+										<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50844">&nbsp;&nbsp;Check here!</a>
+									</h4>
+
+									<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54918 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54918">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54919 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54919">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54920 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54920">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54921 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54921">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54922 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54922">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54923 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54923">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54924 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54924">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54925 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54925">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54926 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54926">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54927 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54927">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54928 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54928">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54929 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54929">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54930 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54930">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54931 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54931">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54932 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54932">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54933 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54933">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54934 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54934">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54935 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54935">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54936 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54936">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54937 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54937">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54938 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54938">&nbsp;&nbsp;Check here!</a>
+								</h4>
+								
+								<h4 style="color: goldenrod;" class="position-name">
+								    <b>CVE-2024-54939 &nbsp;</b>
+								    <b style="color:darkcyan">&nbsp; 2024 </b>
+								    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54939">&nbsp;&nbsp;Check here!</a>
+								</h4>
+
+
+									
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Recieved Thanks : 2024 </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									<h4 style="color: goldenrod;" class="position-name"><b>IBM&nbsp;</b> <b
+											style="color:darkcyan">&nbsp; 14 May 2024 </b> <a
+											href="https://hackerone.com/oxm14r41?type=user">&nbsp;&nbsp;Check here!</a>
+									</h4>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Recieved Thanks : 2024 </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									<h4 style="color: goldenrod;" class="position-name"><b>IBM&nbsp;</b> <b
+											style="color:darkcyan">&nbsp; 14 May 2024 </b> <a
+											href="https://hackerone.com/oxm14r41?type=user">&nbsp;&nbsp;Check here!</a>
+									</h4>
+								</div>
+							</div>
+
+
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">NCIIPC Newsletter: Jan 2023</h4>
+									<h4 style="color: goldenrod;" class="position-name">
+										<b>Listed in the Top 15 Researchers&nbsp;</b></br>
+										<b style="color: darkcyan;">&nbsp;by NCIIPC India in newsletter</b>
+										<a href="https://www.linkedin.com/feed/update/urn:li:activity:7034156257301118978/">&nbsp;&nbsp;Check here!</a>
+									</h4>
+								</div>
+								
+								
+							</div>
+
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Acknowledgement </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									<h4 style="color: goldenrod;" class="position-name"><b>350X Plus NCIIPC
+											India&nbsp;</b> <b style="color:darkcyan">&nbsp; 2022 </b> <a
+											href="https://www.linkedin.com/in/m14r41/details/honors/">&nbsp;&nbsp;Check
+											here!</a></h4>
+									<h4 style="color: goldenrod;" class="position-name"><b>NASA&nbsp;</b> <b
+											style="color:darkcyan">&nbsp;&nbsp; 2022 </b> <a href="#">&nbsp;&nbsp;Check
+											here!</a></h4>
+
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Received Award</h4>
+									<h4 style="color: rgb(106, 133, 116);" class="position-name">
+										<b>Award of Multi Skilled Employee  </br> &nbsp;</b>
+										<b style="color: darkcyan;">&nbsp;Received by GTIS</b>						
+										<a href="https://drive.google.com/file/d/1Gp2-lfvj6Hv-_8yzSIVWkrzY8mZz4KOF/view?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check here!</a>
+									</h4>
+								</div>
+								
+							</div>
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Hall of Fame </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									
+									<h4 style="color: goldenrod;" class="position-name"><b>&nbsp; Utrecht University</b> <b
+											style="color:darkcyan">&nbsp;&nbsp; Dec 2022 </b> <a
+											href="https://www.uu.nl/en/organisation/information-and-technology-services-its/hall-of-fame-responsible-disclosure/">&nbsp;&nbsp;Check
+											here!</a></h4>
+									
+									<h4 style="color: goldenrod;" class="position-name"><b>&nbsp; Geocod</b> <b
+											style="color:darkcyan">&nbsp;&nbsp; 12 Dec 2022 </b> <a
+											href="https://www.geocod.io/responsible-disclosure-policy/">&nbsp;&nbsp;Check
+											here!</a></h4>
+									<h4 style="color: goldenrod;" class="position-name"><b>&nbsp; Drexel
+											University's</b> <b style="color:darkcyan">&nbsp;&nbsp; Dec 2022 </b> <a
+											href="https://drexel.edu/it/security/services-processes/bug-bounty/">&nbsp;&nbsp;Check
+											here!</a></h4>
+									<h4 style="color: goldenrod;" class="position-name"><b>&nbsp; BlackBerry</b> <b
+											style="color:darkcyan">&nbsp;&nbsp; 16 Nov 2022 </b> <a
+											href="https://www.blackberry.com/us/en/services/blackberry-product-security-incident-response">&nbsp;&nbsp;Check
+											here!</a></h4>
+									<h4 style="color: goldenrod;" class="position-name"><b>&nbsp; University of
+											Texas</b> <b style="color:darkcyan">&nbsp;&nbsp; 06 Nov 2022 </b> <a
+											href="https://security.utexas.edu/hall-of-fame">&nbsp;&nbsp;Check here!</a>
+									</h4>
+									<h4 style="color: goldenrod;" class="position-name"><b>&nbsp; Inflectra&nbsp;</b> <b
+											style="color:darkcyan">&nbsp;&nbsp; 03 Aug 2022 </b> <a
+											href="https://www.inflectra.com/Company/Responsible-Disclosure.aspx">&nbsp;&nbsp;Check
+											here!</a></h4>
+									
+									<h4 style="color: goldenrod;" class="position-name"><b>&nbsp; Bosch</b> <b
+											style="color:darkcyan">&nbsp;&nbsp; 02 May 2022 </b> <a
+											href="https://psirt.bosch.com/hall-of-fame/websites-hall-of-fame.html">&nbsp;&nbsp;Check
+											here!</a></h4>
+									
+
+								</div>
+							</div>
+
+
+
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company">Apprication Letter </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									<h4 style="color: goldenrod;" class="position-name"><b>2X University of Cambridge
+											&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;</b> <a
+											href="https://www.linkedin.com/posts/m14r41_appriciation-cambridgeuniversity-learning-activity-6957763119683129344-2vJg?utm_source=share&utm_medium=member_desktop">&nbsp;&nbsp;Check
+											here!</a></h4>
+									<h4 style="color: goldenrod;" class="position-name"><b>10X Drexel University
+											&nbsp;</b> <b
+											style="color:darkcyan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+										<a
+											href="https://drive.google.com/file/d/1XSKvmDaBmL6bmOiohmG-NDKKNERrTG2P/view?usp=sharing">&nbsp;&nbsp;Check
+											here!</a></h4>
+
+
+								</div>
+							</div>
+
+
+
+							<div class="col-md-6">
+								<div class="experience-single">
+									<h4 class="company"> Upcomming Achivements </h4>
+									<!-- <h4 style="color: goldenrod;" class="position-name"><b>Company&nbsp;&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp;&nbsp; Last Time  </b> <a href="https://M14R41.github.io/blog/" >&nbsp;&nbsp;&nbsp;&nbsp;Links</a></h4> -->
+									<h4 style="color: goldenrod;" class="position-name"><b> Waiting for multiple
+											achivements &nbsp;</b> <b style="color:darkcyan">&nbsp; </b> <a
+											href="#">&nbsp;&nbsp;Check here!</a></h4>
+									<h4 style="color: goldenrod;" class="position-name"><b> Let's collaborate
+											together&nbsp;</b> <b style="color:darkcyan">&nbsp;&nbsp; </b> <a
+											href="https://www.linkedin.com/in/m14r41/">&nbsp;&nbsp;Check here!</a></h4>
+
+								</div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+
+			<!-- begin of projects-wrapper -->
+
+			<div id="projects" class="wrapper projects-wrapper">
+				<div class="container-fluid">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="wrapper-heading">Projects</h3>
+							</div>
+									
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://github.com/m14r41/PentestingEverything" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/PentestEverything.png" alt="PentestingEverything" style="width: 400px; height: 200px;">
+									</div>
+								
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>PentestingEverything </span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+
+
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://github.com/m14r41/SemgrepAnalyzer?tab=readme-ov-file" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/SemgerepAnalyzer.png" alt="SemgrepAnalyzer" style="width: 400px; height: 200px;">
+									</div>
+								
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>SemgrepAnalyzer </span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://github.com/m14r41/CyberSecurity-Interview" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/Interview.png" alt="CyberSecurity-Interview" style="width: 400px; height: 200px;">
+									</div>
+								
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>CyberSecurity-Interview </span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://github.com/m14r41/LinuxEnv" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/LinuxEnv - m14r41.png" alt="LinuxEnv" style="width: 400px; height: 200px;">
+									</div>
+								
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>LinuxEnv </span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://github.com/m14r41/Segmentation-Testing?tab=readme-ov-file" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/Segmentation.png" alt="Segmentation-Testing" style="width: 400px; height: 200px;">
+									</div>
+								
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Segmentation-Testing </span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://www.linkedin.com/feed/update/urn:li:activity:6912299002994581504/" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/hunting.jpg" alt="BugHunting - Automation" style="width: 400px; height: 200px;">
+									</div>
+								
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>BugHunting - Automation</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+			</div>
+
+			<!-- end of Projet-wrapper -->
+						
+
+
+			<!-- begin of blogs-wrapper -->
+
+			<div id="blogs" class="wrapper blogs-wrapper">
+				<div class="container-fluid">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="wrapper-heading">Blogs</h3>
+							</div>
+									
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://medium.com/@m14r41/graphql-pentesting-a-beginners-guide-to-advanced-08c29bf82979" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/Graphql-api.webp" alt="GraphQL Pentesting" style="width: 440px; height: 200px;">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>GraphQL Pentesting: Beginner’s to Advanced.</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://medium.com/@m14r41/thick-client-pentesting-guide-95529a980ea4" target="_blank">
+									<div class="blog-img">
+										<img  src="img/blogs/thickClient.webp" alt="Thick Client Pentesting Guide" style="width: 400px; height: 200px;">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Thick Client Pentesting Guide</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://medium.com/@m14r41/rest-api-pentesting-resources-3155985b8c4d" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/blogs/rest-api-pentesting.webp" alt="Rest API Pentesting Resources">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Rest API Pentesting Resources</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://medium.com/@m14r41/android-dynamic-penetration-testing-2b54b0d8c89c" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/blogs/adnroid-dynamic.webp" alt="Android Dynamic Penetration Testing">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Android Dynamic Penetration Testing</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://medium.com/@m14r41/hello-im-madhurendra-and-in-this-article-i-ll-delve-into-the-realm-of-mobile-application-35551733919c" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/blogs/android-static.webp" alt="Android Static Analysis">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Android Static Analysis</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://medium.com/@m14r41/comprehensive-guide-to-static-application-security-testing-sast-d87c53b6e587" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/blogs/SAST - m14r41.webp" alt="SAST" >
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Static Application Security Testing </span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				</br>
+				<div class="slider">
+					<div class="slide-track-1">
+						<div class="slide">
+							<img src="img/1.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="img/2.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/3.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/4.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/5.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/6.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/7.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="/img/8.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="/img/9.jpg" alt="">
+						</div>
+						<div class="slide">
+							<img src="/img/ibm.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="/img/cve.ico" alt="">
+						</div>
+
+					</div>
+				</div>
+				</br>
+				<div class="slider">
+					<div class="slide-track-2">
+						<div class="slide">
+							<img src="img/6.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="img/4.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/2.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/3.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/1.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/7.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="img/8.png" alt="">
+						</div>
+
+						<div class="slide">
+							<img src="/img/3.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="/img/2.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="/img/4.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="/img/ibm.png" alt="">
+						</div>
+					</div>
+				</div>
+
+				<!-- begin of contact-wrapper -->
+				<div id="contact" class="wrapper contact-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<!-- section heading -->
+								<h3 class="wrapper-heading">Contact Us </h3>
+								<p><b>If you want to contact me please leave your message here!!</b></p>
+							</div>
+							<div class="col-lg-12 col-md-12">
+								<div class="contact-info">
+
+
+									<div class="container">
+										<div class="screen">
+											<div class="screen-header">
+												<div class="screen-header-left">
+													<div class="screen-header-button close"></div>
+													<div class="screen-header-button maximize"></div>
+													<div class="screen-header-button minimize"></div>
+												</div>
+												<div class="screen-header-right">
+													<div class="screen-header-ellipsis"></div>
+													<div class="screen-header-ellipsis"></div>
+													<div class="screen-header-ellipsis"></div>
+												</div>
+											</div>
+											<div class="screen-body">
+												<div class="screen-body-item left">
+													<div class="app-title">
+														<span>CONTACT US</span>
+													</div>
+													<span> </br></br>
+														<p><span class="fa fa-envelope-o"></span> &nbsp;&nbsp;<a
+																href="mailto:madhurendra011@gmail.com"
+																style="color: red;">Email</a></p>
+														<p><span class="fa fa-github" style="font-size:25px"></span>
+															&nbsp;&nbsp;<a href="https://github.com/m14r41"
+																target="_blank" style="color: red;">GitHub</a></p>
+														<p><span class="fa fa-twitter" style="font-size:25px"></span>
+															&nbsp;&nbsp;<a href="https://twitter.com/M14_R41"
+																target="_blank" style="color: red;">Twitter</a></p>
+														<p><span class="fa fa-linkedin" style="font-size:25px"></span>
+															&nbsp;&nbsp;<a
+																href="https://www.linkedin.com/in/your-linkedin-profile"
+																target="_blank" style="color: red;">LinkedIn</a></p>
+
+
+													</span>
+													
+													
+													<div class="app-contact">
+													</div>
+												</div>
+												<div class="screen-body-item">
+													<div class="app-form">
+														<div class="app-form-group">
+															<input class="app-form-control" value="MADHURENDRA KUMAR"
+																readonly>
+														</div>
+														<div class="app-form-group">
+															<input class="app-form-control"
+																value="" readonly>
+														</div>
+														<div class="app-form-group">
+															<input class="app-form-control"
+																value="" readonly>
+														</div>
+														<div class="app-form-group message">
+															<input class="app-form-control"
+																value="FEEL FREE TO CONTACT!" readonly>
+														</div>
+														<iframe style="pointer-events: none;" data-wow-delay=".2s"
+														src="https://free.timeanddate.com/clock/i83jkenu/n1595/fn17/fs16/fcf90/tc111/pct/avb/ftb/bas2/bat8/bac111/pa8/tt0/tw1/th1/ta1/tb4"
+														frameborder="5" width="250" height="60" allowtransparency="true"></iframe>
+													</div>
+													
+												</div>
+
+												
+											</div>
+											
+										</div><br><br>
+										<script src="https://static.elfsight.com/platform/platform.js" async></script>
+										<div class="elfsight-app-e070348d-6ba9-4159-b04a-c9d8775d72cc" data-elfsight-app-lazy></div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of contact-wrapper -->
+
+			<!-- begin of contact-wrapper -->
+			<footer class="wrapper footer-wrapper">
+				<div class="container-fluid">
+					<div class="col-md-12 text-center">
+						<div class="footer-social">
+							<a href="https://twitter.com/M14_R41" target="_blank"
+								style="background: rgb(145, 0, 0); padding: 2px 5px; border-radius: 5px;">Twitter</a>
+							<a href="https://github.com/m14r41" target="_blank"
+								style="background: rgb(145, 0, 0); padding: 2px 5px; border-radius: 5px;">GitHub</a>
+							<a href="https://www.linkedin.com/in/M14R41/" target="_blank"
+								style="background: rgb(145, 0, 0); padding: 2px 5px; border-radius: 5px;">Linkedin</a>
+
+						</div>
+						<!-- <p style="color: rgba(251, 251, 251, 0.89); font-size: 20px; box-shadow: rgb(228, 255, 202);"
+							class="footer-copyright"><strong>© Copyright 2025 - Madhurendra Kumar</strong></p> -->
+						<!--<p style="text-align: center; background: linear-gradient(to right, #ff7e5f, #feb47b, #6a11cb, #2575fc); color: white; padding: 10px 0; font-size: 16px;">    &copy; 2025 - Madhurendra Kumar. All Rights Reserved.</p> -->
+						
+<p style="text-align: center; background: black; color: #ff3333; padding: 15px 0; font-size: 18px; font-family: 'Courier New', monospace; letter-spacing: 3px; font-weight: bold; text-shadow: 0 0 15px #ff3333, 0 0 30px #ff6666, 0 0 45px #ff0000, 0 0 60px #ff6600;">
+    &copy; 2025 - All Rights Reserved.<br />
+    <span style="font-size: 20px; color: #ff3333;">Madhurendra Kumar</span>
+</p>
+
+					</div>
+				</div>
+				
+			</footer>
+			<!-- end of contact-wrapper -->
+
+			<!-- scroll-to top -->
+			<a class="default-btn scroll-to-top" href="#body"><span class="ti-angle-up "></span></a>
+
+		</div>
+		<!-- end of main-content -->
+	</div>
+	<!-- end of main-wrapper -->
+
+	<!-- All JS -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
